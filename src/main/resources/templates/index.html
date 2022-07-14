@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Tienda</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <!-- Index sin iniciar seccion -->
+    <body>
+        <header class="cabeza">
+            <div><h1>Logo</h1></div>
+            <nav class="nav-menu">
+                <a href="">Hogar</a>
+                <a href="">Productos</a>
+                <a href="">Destacados</a>
+                <a href="">Promociones</a>
+                <a href="">Contacto</a>
+                <a th:href="@{/usuario}">Login</a>
+                <a href="">Sing up</a>
+            </nav>
+        </header>
+        <br>
+        <section id="Bienvenida">
+            Bienvenido!
+            <br>
+            Tenemos los mejores productos del pais
+            <br>
+            TE INTERESA SABER COMO COMPRAR NUESTROS PRODUCTOS, ENTRA AQUÍ Y CONSIGUE NUESTROS PRODUCTOS
+        </section>
+        <br>
+        <a href="">Ver Productos ></a>
+        <br>
+        <footer id="piepagina">
+            Derechos reservados &COPY; 2022 
+        </footer>
+    </body>
+</html>
