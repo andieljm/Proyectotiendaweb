@@ -13,15 +13,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <header th:fragment="menu">
             <div><h1>Logo</h1></div>
             <nav class="nav-menu">
-                <a href="">Hogar</a>
-                <a href="">Productos</a>
+                <a th:href="@{/}">Hogar</a>
+                <a th:href="@{/productos/}">Productos</a>
                 <a href="">Destacados</a>
                 <a href="">Promociones</a>
                 <a href="">Contacto</a>
-                <a href="">icono de Portafolio</a>
-                <a href="">♡</a>
-                <a href="">icono de caja</a>
-                <a href="">icono de usuario</a>
+                <a th:href="@{/trabajo/}">icono de Portafolio</a>
+                <a th:href="@{/favorito/}">♡</a>
+                <a th:href="@{/carrito/}">icono del carrito de compras</a>
+                <a th:href="@{/perfil/}">icono de usuario</a>
             </nav>
         </header>
     </body>

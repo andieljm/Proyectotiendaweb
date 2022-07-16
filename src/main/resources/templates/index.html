@@ -10,12 +10,12 @@
         <header class="cabeza">
             <div><h1>Logo</h1></div>
             <nav class="nav-menu">
-                <a href="">Hogar</a>
-                <a href="">Productos</a>
+                <a th:href="@{/}">Hogar</a>
+                <a th:href="@{/productos/}">Productos</a>
                 <a href="">Destacados</a>
                 <a href="">Promociones</a>
                 <a href="">Contacto</a>
-                <a th:href="@{/usuario}">Login</a>
+                <a th:href="@{/usuario/}">Login</a>
                 <a href="">Sing up</a>
             </nav>
         </header>
@@ -28,10 +28,10 @@
             TE INTERESA SABER COMO COMPRAR NUESTROS PRODUCTOS, ENTRA AQUÍ Y CONSIGUE NUESTROS PRODUCTOS
         </section>
         <br>
-        <a href="">Ver Productos ></a>
-        <br>
+        <a th:href="@{/productos/}">Ver Productos ></a>
+        <br/>
         <footer id="piepagina">
-            Derechos reservados &COPY; 2022 
+            Pie de pagina Derechos reservados &COPY; 2022 
         </footer>
     </body>
 </html>
