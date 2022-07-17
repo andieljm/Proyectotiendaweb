@@ -3,10 +3,24 @@
     <head>
         <title>Tienda</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <!-- index cuando se inicio seccion -->
-    <body>
-        <header th:replace="layout/plantilla :: menu"></header>
-    </body>
-</html>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </head>
+                <!-- index cuando se inicio seccion -->
+                <body>
+                    <header th:replace="layout/plantilla :: menu"></header>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Contraseña</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="item : ${usuarios}">
+                                <td th:text="${item.nombre}"></td>
+                                <td th:text="${item.contrasenia}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </body>
+                </html>

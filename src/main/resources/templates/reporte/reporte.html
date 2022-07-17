@@ -1,0 +1,25 @@
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Reportes</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Tpo de Reporte</th>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${reportes}">
+                    <td th:text="${item.tipoReporte}"></td>
+                    <td th:text="${item.descripcion}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
