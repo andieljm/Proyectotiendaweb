@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+.header .logo {
+    color: white;
+    text-decoration: none;
+    margin-right: auto;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 105px;
+}
+
+.header .logo:hover {
+    color: #62F2F9;
+    transform: scale(1.1);
+}
+
+.header .nav-link{
+    list-style: none;
+}
+
+.header .menu{
+    margin-right: auto;
+}
+
+.header .nav-link li{
+    display: inline-block;
+    padding: 0 25px;
+    line-height: 105px;
+}
+
+.header .nav-link li:hover{
+    transform: scale(1.1);
+}
+
+.header .nav-link a{
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.header .nav-link a:hover{
+    color: #62F2F9;
+}
+
+.header .acceso{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 105px;
+    margin-right: 55px;
+}
+
+.header .acceso:hover{
+    color: #62F2F9;
+    transform: scale(1.1);
+}
+
+.header .registrarse{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 105px;
+}
+
+.header .registrarse:hover{
+    color: #62F2F9;
+    transform: scale(1.1);
+}

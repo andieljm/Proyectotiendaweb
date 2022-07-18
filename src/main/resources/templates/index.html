@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Tienda</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <!-- Index sin iniciar seccion -->
-    <body>
-        <header class="cabeza">
-            <div><h1>Logo</h1></div>
-            <nav class="nav-menu">
-                <a th:href="@{/}">Hogar</a>
-                <a th:href="@{/productos/}">Productos</a>
-                <a href="">Destacados</a>
-                <a href="">Promociones</a>
-                <a href="">Contacto</a>
-                <a th:href="@{/usuario/}">Login</a>
-                <a href="">Sing up</a>
-            </nav>
-        </header>
-        <br>
-        <section id="Bienvenida">
-            Bienvenido!
-            <br>
-            Tenemos los mejores productos del pais
-            <br>
-            TE INTERESA SABER COMO COMPRAR NUESTROS PRODUCTOS, ENTRA AQUÍ Y CONSIGUE NUESTROS PRODUCTOS
-        </section>
-        <br>
-        <a th:href="@{/productos/}">Ver Productos ></a>
-        <br/>
-        <footer id="piepagina">
-            Pie de pagina Derechos reservados &COPY; 2022 
-        </footer>
-    </body>
+
+<html>
+  <head>
+    <title>Tienda</title>
+    <meta charset="UTF-8" />
+    <link href="../static/static.css/contenido.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/static.css/menu.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/static.css/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">LOGO</a>
+      <nav class="menu">
+        <ul class="nav-link">
+          <li>
+            <a href="#">Hogar</a>
+          </li>
+          <li>
+            <a href="#">Productos</a>
+          </li>
+          <li>
+            <a href="#">Destacados</a>
+          </li>
+          <li>
+            <a href="#">Promociones</a>
+          </li>
+          <li>
+            <a href="#">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+      <a href="#" class="acceso">Accesar</a>
+      <a href="#" class="registrarse">Registrarse</a>
+    </header>
+
+    <section id="contenido">
+      <div class="texto">
+        <p>¡BIENVENIDO!</p>
+        <h1>TENEMOS LOS MEJORES<br> PRODUCTOS DEL PAÍS</h1>
+        <h5>TE INTERESA SABER COMO COMPRAR NUESTROS PRODUCTOS, <br>ENTRA AQUÍ Y CONSIGUE NUESTROS PRODUCTOS</h5>
+      </div>
+      <div class="imagen">
+          <img src="../static/static.images/tienda.png" alt=""/>
+      </div>
+    </section>
+    <footer id="piePagina">
+      <p>Derechos Reservados &COPY; 2022</p>
+      <address style="display: inline">CONTACTENOS</address>
+      <address style="display: inline">+506 3243-4566</address>
+    </footer>
+  </body>
 </html>
