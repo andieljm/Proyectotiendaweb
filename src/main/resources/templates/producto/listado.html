@@ -1,36 +1,18 @@
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head>
         <title>Tienda</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <header th:replace="layout/plantilla :: menu"></header>
-        <h2>Productos</h2>
-        <table border="1">
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Color</th>
-                                <th>Tipo</th>
-                                <th>Descripcion</th>
-                                <th>Codigo de Producto</th>
-                                <th>Stock</th>
-                                <th>Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="item : ${productos}">
-                                <td th:text="${item.nombreProducto}"></td>
-                                <td th:text="${item.color}"></td>
-                                <td th:text="${item.tipo}"></td>
-                                <td th:text="${item.descripcion}"></td>
-                                <td th:text="${item.codigoProducto}"></td>
-                                <td th:text="${item.stock}"></td>
-                                <td th:text="${item.precio}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-    </body>
-</html>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" th:href="@{/css/style.css}" />
+                <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+                <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+                </head>
+                <body>
+                    <header th:replace="layout/plantilla :: header"></header>
+                    <section th:replace="layout/plantilla :: contenido"></section>
+                    <footer th:replace="layout/plantilla :: piePagina"></footer>
+                </body>
+                </html>

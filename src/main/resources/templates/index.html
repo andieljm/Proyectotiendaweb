@@ -4,39 +4,16 @@
     <head>
         <title>Tienda</title>
         <meta charset="UTF-8" />
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <link href="css/contenido.css" rel="stylesheet" type="text/css" />
-        <link href="css/menu.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
     </head>
     <body>
-        <header class="header">
-            <nav href="index.html" class="logo">LOGO</nav>
-            <nav class="menu">
-                <ul class="nav-link">
-                    <li>
-                        <a th:href="@{/}">Hogar</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/productos/}">Productos</a>
-                    </li>
-                    <li>
-                        <a href="#">Destacados</a>
-                    </li>
-                    <li>
-                        <a href="#">Promociones</a>
-                    </li>
-                    <li>
-                        <a href="#">Contacto</a>
-                    </li>
-                </ul>
-            </nav>
-            <a href="#" class="acceso">Accesar</a>
-            <a href="#" class="registrarse">Registrarse</a>
-        </header>
+        <header th:replace="layout/plantilla :: header"></header>
 
         <section id="contenido">
             <div class="texto">
-                <p>¡BIENVENIDO!</p>
+                <p>¡BIENVENIDO!  <span style="display: inline; color: #0000ff" sec:authentication="name">Usuario</span></p> 
                 <h1>TENEMOS LOS MEJORES<br> PRODUCTOS DEL PAÍS</h1>
                 <h5>TE INTERESA SABER COMO COMPRAR NUESTROS PRODUCTOS, <br>ENTRA AQUÍ Y CONSIGUE NUESTROS PRODUCTOS</h5>
             </div>
@@ -44,10 +21,6 @@
                 <img th:src="@{/images/tienda.png}"  alt="Imagen de decoración" width="50%"/>
             </div>
         </section>
-        <footer id="piePagina">
-            <p>Derechos Reservados &COPY; 2022</p>
-            <address style="display: inline">CONTACTENOS</address>
-            <address style="display: inline">+506 3243-4566</address>
-        </footer>
+        <footer th:replace="layout/plantilla :: piePagina" ></footer>
     </body>
 </html>

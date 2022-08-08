@@ -16,15 +16,16 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 public class EmpleadoController {
-    
-    @Autowired EmpleadoService empleadoService;
-    
-    @GetMapping("/trabajo/")
+
+    @Autowired
+    EmpleadoService empleadoService;
+
+    @GetMapping("/empleados/")
     public String usuarios(Model model) {
-        
+
         var empleados = empleadoService.getEmpleados();
         model.addAttribute("empleados", empleados);
-        return "/trabajo/empleado";
+        return "/empleado/listado";
     }
-    
+
 }

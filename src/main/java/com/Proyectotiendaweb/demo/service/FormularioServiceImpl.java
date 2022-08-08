@@ -31,12 +31,12 @@ public class FormularioServiceImpl implements FormularioService{
     @Override
     @Transactional (readOnly = true)
     public void save(Formulario formulario) {
-        
+        formularioDao.save(formulario);
     }
 
     @Override
     public void delete(Formulario formulario) {
-        
+        formularioDao.delete(formulario);
     }
     
 }

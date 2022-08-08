@@ -91,4 +91,16 @@ public class TemplateResolverConfiguration {
         templetaResolver.setCheckExistence(true);
         return templetaResolver;
     }
+    
+    @Bean
+    public SpringResourceTemplateResolver templetaResolver_7() {
+        SpringResourceTemplateResolver templetaResolver = new SpringResourceTemplateResolver();
+        templetaResolver.setPrefix("templates/empleado");
+        templetaResolver.setSuffix(".html");
+        templetaResolver.setTemplateMode(TemplateMode.HTML);
+        templetaResolver.setCharacterEncoding("UTF-8");
+        templetaResolver.setOrder(7);
+        templetaResolver.setCheckExistence(true);
+        return templetaResolver;
+    }
 }
