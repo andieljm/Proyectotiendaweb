@@ -7,20 +7,19 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 </head>
                 <body>
-                    <div class="login">
-                        <h2>Login</h2>
-                        <form method="POST" th:action="@{login}">
-                            <label for="username">username</label>
+                    <div class="contenido">
+                        <form method="POST" th:action="@{/login}">
+                            <label for="username" >Username</label>
                             <br/>
-                            <input type="text" id="username"/>
-                            <br/>
-                            <br/>
-                            <label for="password">password</label>
-                            <br/>
-                            <input type="password" id="password"/>
+                            <input type="text" name="username" id="username"/>
                             <br/>
                             <br/>
-                            <button type="submit" value="Login" >login</button>
+                            <label for="password"  >Password</label>
+                            <br/>
+                            <input type="text" name="password" id="password"/>
+                            <br/>
+                            <br/>
+                            <button type="submit" th:value="Login" name="iniciar" >Login</button>
                         </form>
                     </div>
                 </body>

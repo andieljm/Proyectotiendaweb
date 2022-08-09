@@ -2,6 +2,7 @@
 package com.Proyectotiendaweb.demo.domain;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,8 @@ public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUsuario; // Hibernate lo transforma en id_cliente
+    @Column(name = "id_usuario")
+    private Long idUsuario;
     String username;
     String password;
     Long idCliente;
