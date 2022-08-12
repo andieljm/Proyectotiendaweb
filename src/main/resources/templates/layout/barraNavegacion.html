@@ -2,20 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
-    
+
     <head th:fragment="head">
-        <title>Plantilla</title>
+        <title>Menu</title>
         <meta charset="UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
         <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        <link rel="stylesheet" th:href="@{/css/style.css}" />
-        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
-        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
     </head>
-    
     <body>
         <header th:fragment="header" class="header">
             <nav href="index.html" class="logo">LOGO</nav>
