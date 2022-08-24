@@ -18,6 +18,7 @@ public class FormularioServiceImpl implements FormularioService{
     @Autowired FormularioDao formularioDao;
     
     @Override
+    @Transactional(readOnly = true)
     public List<Formulario> getFormularios() {
         return (List<Formulario>)formularioDao.findAll();
     }
@@ -29,7 +30,7 @@ public class FormularioServiceImpl implements FormularioService{
     }
 
     @Override
-    @Transactional (readOnly = true)
+    @Transactional
     public void save(Formulario formulario) {
         formularioDao.save(formulario);
     }
