@@ -36,10 +36,16 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        
         Usuario us = UsuarioDao.findByUsername(username);
         Rol rol = rolDao.findById(us.getIdRol()).orElse(null);
+        
         List<GrantedAuthority> roles = new ArrayList<>();
         roles.add(new SimpleGrantedAuthority(rol.getNombre()));
+        
+        if (rol.getNombre().equals("ROLE_ADMIN")) {
+            roles.add(new SimpleGrantedAuthority("ROLE_USER"));
+        }
 
         UserDetails userDet = new User(us.getUsername(), "{noop}" + us.getPassword(), roles);
         return userDet;

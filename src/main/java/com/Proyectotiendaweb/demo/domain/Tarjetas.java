@@ -1,9 +1,12 @@
 
+
 package com.Proyectotiendaweb.demo.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Data;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,7 +25,14 @@ public class Tarjetas implements Serializable{
     private String numeroCuenta;
     private String tipo;
     private int codSeguridad;
-
+    
+    
+    @JoinColumn(name="id_cliente", referencedColumnName = "id_cliente" ) 
+    @ManyToOne
+    private Cliente cliente;
+    
+    
+    
     public Tarjetas() {
     }
 
@@ -31,6 +41,11 @@ public class Tarjetas implements Serializable{
         this.tipo = tipo;
         this.codSeguridad = codSeguridad;
     }
-    
-    
+
+    public Tarjetas (String numeroCuenta, String tipo, int codSeguridad, Cliente cliente) {
+        this.numeroCuenta = numeroCuenta;
+        this.tipo = tipo;
+        this.codSeguridad = codSeguridad;
+        this.cliente = cliente;
+    }
 }

@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/springframework/Controller.java to edit this template
- */
 package com.Proyectotiendaweb.demo.controller;
 
+
+import com.Proyectotiendaweb.demo.domain.FavoritoDetalle;
+import com.Proyectotiendaweb.demo.domain.Producto;
+import com.Proyectotiendaweb.demo.service.FavoritoDetalleService;
+import com.Proyectotiendaweb.demo.service.ProductoService;
+import java.util.List;
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
@@ -15,10 +18,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class FavoritoController {
-    
-    @GetMapping("/favorito/")
-    public String usuarios() {
-        return "/favoritos/listado";
+
+    @Autowired
+    private FavoritoDetalleService favoritoDetalleService;
+
+    @Autowired
+    private ProductoService productoService;
+
+    @GetMapping("favorito/agregar/{idProducto}")
+    public String agregar(Producto producto, HttpSession session) {
+
+        Long idFavorito = (Long) session.getAttribute("idFavorito");
+        producto = productoService.getProducto(producto);
+
+        FavoritoDetalle favoritoDetalle = favoritoDetalleService.getFavoritoDetalle(idFavorito, producto);
+
+        if (favoritoDetalle != null) { 
+            favoritoDetalle.setCantidad(favoritoDetalle.getCantidad()+ 1); 
+        } else {
+            favoritoDetalle = new FavoritoDetalle(idFavorito, 1, producto);
+        }
+        favoritoDetalleService.save(favoritoDetalle);
+
+        return "redirect:/";
     }
     
+    @GetMapping("/favorito/listado")
+    public String listado(Model model, Producto producto, HttpSession session) {
+        
+        Long idFavorito = (Long) session.getAttribute("idFavorito");
+        List<FavoritoDetalle> favoritoDetalles = favoritoDetalleService.getFavoritoDetalles(idFavorito);
+        model.addAttribute("favoritoDetalle", favoritoDetalles);
+        return "/favorito/listado";
+    }
 }

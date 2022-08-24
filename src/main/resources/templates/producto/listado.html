@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Tienda</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+    </head>
+    <body>
+        <header th:replace="layout/barraNavegacion :: header"></header>
+        <section th:fragment="contenido" id="contenido">
+            <h2>Productos</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Color</th>
+                        <th>stock</th>
+                        <th>Tipo</th>
+                        <th>Descripcion</th>
+                        <th>codigo de Producto</th>
+                        <th>Comprar</th>
+                        <th>Favoritos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${productos}">
+                        <td th:text="${item.nombreProducto}"></td>
+                        <td th:text="${item.precio}"></td>
+                        <td th:text="${item.color}"></td>
+                        <td th:text="${item.stock}"></td>
+                        <td th:text="${item.tipo}"></td>
+                        <td th:text="${item.descripcion}"></td>
+                        <td th:text="${item.codigoProducto}"></td>
+                        <td><a th:href="@{/carrito/agregar/} + ${item.idProducto}">Comprar</a></td>
+                        <td><a th:href="@{/favorito/agregar/} + ${item.idProducto}">Favoritos</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <footer th:replace="layout/piePagina :: piePagina" ></footer>
+    </body>
+</html>

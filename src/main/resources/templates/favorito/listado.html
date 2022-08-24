@@ -11,16 +11,13 @@
     </head>
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>
-        <section id="contenido">
+        <section th:fragment="contenido" id="contenido">
             <a href="#!"th:href="@{/}">Regresar</a></h5>
             <hr>
-                <div th:each="item : ${carritoDetalles}" >
+                <div th:each="item : ${favoritoDetalle}" >
                     <h5>[[${item.producto.nombreProducto}]]</h5>
                     <p>[[${item.producto.descripcion}]]</p>
                     <h5>[[${item.cantidad}]]</h5>
-                    <h5 >[[${item.precio}]]</h5>
-                    <p>Total</p>
-                    <p>[[${new java.text.DecimalFormat('#,##0.00').format(montoTotal)}]]</p>
                 </div>
             </hr>
         </section>

@@ -1,27 +1,33 @@
-
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Tienda</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
     </head>
     <body>
-        <h2>Metodos de Pago</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Numero de cuenta</th>
-                    <th>Tipo</th>
-                    <th>Codigo de Seguridad</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="item : ${tarjetass}">
-                    <td th:text="${item.numeroCuenta}"></td>
-                    <td th:text="${item.tipo}"></td>
-                    <td th:text="${item.codSeguridad}">Prueba de commit</td>
-                </tr>
-            </tbody>
-        </table>
+        <section th:fragment="contenido" id="contenido">
+            <h2>Metodos de Pago</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Numero de cuenta</th>
+                        <th>Tipo</th>
+                        <th>Codigo de Seguridad</th>
+                        <th>id_usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${tarjetass}">
+                        <td th:text="${item.numeroCuenta}"></td>
+                        <td th:text="${item.tipo}"></td>
+                        <td th:text="${item.codSeguridad}"></td>
+                        <td th:text="${item.idCliente}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </body>
 </html>

@@ -14,7 +14,7 @@ public interface TarjetasService {
     
     public Tarjetas getTarjetas(Tarjetas tarjetas);
     
-    public void save(Tarjetas tarjetas);
+    public void save(Tarjetas Tarjetas);
     
     public void delete(Tarjetas tarjetas);
     
