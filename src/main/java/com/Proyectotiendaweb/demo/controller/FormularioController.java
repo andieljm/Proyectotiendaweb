@@ -19,7 +19,6 @@ public class FormularioController {
 
     @GetMapping("/formulario/")
     public String personas(Model model) {
-
         var formularios = formularioService.getFormularios();
         model.addAttribute("formularios", formularios);
         return "/formulario/formulario";
@@ -33,7 +32,7 @@ public class FormularioController {
     @PostMapping("/formulario/guardar")
     public String guardarFormulario(Formulario formulario) {
         formularioService.save(formulario);
-        return "redirect:/formulario/";
+        return "redirect/formulario/";
     }
 
     @GetMapping("/formulario/modificar/{idPersona}")

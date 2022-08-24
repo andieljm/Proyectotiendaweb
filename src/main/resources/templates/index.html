@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>Tienda</title>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" th:href="@{/css/style.css}" />
-        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
-        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+    <head th:replace="layout/barraNavegacion :: head">
     </head>
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>

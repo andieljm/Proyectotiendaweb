@@ -1,18 +1,13 @@
 package com.Proyectotiendaweb.demo.domain;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import lombok.Data;
 
 /**
  *
  * @author Warre
  */
-
 @Data
 @Entity
 @Table(name = "formulario")
@@ -31,10 +26,15 @@ public class Formulario implements Serializable {
     public Formulario() {
     }
 
-    public Formulario(String nombre, String apellido, String telefono, String correo) {
+    public Formulario(Long idPersona, String nombre, String apellido, String telefono, String correo) {
+        this.idPersona = idPersona;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.correo = correo;
     }
+
+    
+    
+
 }
