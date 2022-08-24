@@ -51,4 +51,17 @@ public class FavoritoController {
         model.addAttribute("favoritoDetalle", favoritoDetalles);
         return "/favorito/listado";
     }
+    
+    @GetMapping("/favorito/eliminar/{idFavorito}")
+    public String eliminarFavoritoAll(Long idFavorito) {
+        favoritoDetalleService.deleteAll(idFavorito);
+        return "redirect:/favorito/listado";
+    }
+    
+    @GetMapping("/favorito/eliminarSolo/{idFavoritoDetalle}")
+    public String eliminarFavorito(FavoritoDetalle favoritoDetalle) {
+        favoritoDetalleService.delete(favoritoDetalle);
+        return "redirect:/favorito/listado";
+    }
+    
 }

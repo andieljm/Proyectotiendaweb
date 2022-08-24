@@ -12,13 +12,15 @@
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>
         <section th:fragment="contenido" id="contenido">
-            <a href="#!"th:href="@{/}">Regresar</a></h5>
+            <a href="#!"th:href="@{/}">Regresar</a>
             <hr>
                 <div th:each="item : ${favoritoDetalle}" >
                     <h5>[[${item.producto.nombreProducto}]]</h5>
                     <p>[[${item.producto.descripcion}]]</p>
                     <h5>[[${item.cantidad}]]</h5>
+                    <a th:href="@{/favorito/eliminarSolo/} + ${item.idFavoritoDetalle}">Vaciar Favoritos</a> <!-- Sirve para borrar solo 1 -->
                 </div>
+                <a th:href="@{/favorito/eliminar/} + ${item.favorito.idFavorito}">Vaciar Favoritos</a>
             </hr>
         </section>
         <footer th:replace="layout/piePagina :: piePagina" ></footer>

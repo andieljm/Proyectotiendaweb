@@ -18,6 +18,6 @@ public interface FavoritoDetalleService {
 
     public void delete(FavoritoDetalle favoritoDetalle);
 
-    public void deleteAll(Long idCarrito);
+    public void deleteAll(Long idFavorito);
     
 }
