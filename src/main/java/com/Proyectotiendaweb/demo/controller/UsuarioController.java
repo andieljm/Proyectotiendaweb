@@ -30,6 +30,8 @@ public class UsuarioController {
 
     @GetMapping("/usuario/nuevo")
     public String nuevoUsuario(Usuario usuario) {
+        long us = 2;
+        usuario.setIdRol(us);
         return "usuario/usuarioN";
     }
 
