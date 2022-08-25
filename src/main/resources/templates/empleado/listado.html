@@ -1,13 +1,13 @@
-
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/barraNavegacion :: head">
     </head>
     <body>
         <h2>Lista de Empleados</h2>
-        <header th:replace="layout/plantilla :: header"></header>
+        <header th:replace="layout/barraNavegacion :: header"></header>
+        <br/>
+        <br/>
         <table border="1">
             <thead>
                 <tr>
@@ -16,6 +16,8 @@
                     <th>Residencia</th>
                     <th>Cedula</th>
                     <th>Correo</th>
+                    <th>Modificar </th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,8 +27,11 @@
                     <td th:text="${item.residencia}"></td>
                     <td th:text="${item.cedula}"></td>
                     <td th:text="${item.correo}"></td>
+                    <td><a th:href="@{/empleado/modificar/} + ${item.idEmpleado}">Actualizar</a></td>
+                    <td><a th:href="@{/empleado/eliminar/} + ${item.idEmpleado}">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>
+        <a th:href="@{/empleado/nuevo}">Nuevo</a>
     </body>
 </html>

@@ -23,12 +23,15 @@ public class Empleado implements Serializable{
 
     public Empleado() {
     }
-    
-    public Empleado(String nombre, String apellido, String residencia, String cedula, String correo) {
+
+    public Empleado(Long idEmpleado, String nombre, String apellido, String residencia, String cedula, String correo) {
+        this.idEmpleado = idEmpleado;
         this.nombre = nombre;
         this.apellido = apellido;
         this.residencia = residencia;
         this.cedula = cedula;
         this.correo = correo;
     }
+    
+    
 }

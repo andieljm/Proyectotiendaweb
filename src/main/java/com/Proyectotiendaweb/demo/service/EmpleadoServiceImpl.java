@@ -1,4 +1,3 @@
-
 package com.Proyectotiendaweb.demo.service;
 
 import com.Proyectotiendaweb.demo.dao.EmpleadoDao;
@@ -13,30 +12,33 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Warre
  */
 @Service
-public class EmpleadoServiceImpl implements EmpleadoService{
+public class EmpleadoServiceImpl implements EmpleadoService {
     
-    @Autowired EmpleadoDao empleadoDao;
-
+    @Autowired
+    EmpleadoDao empleadoDao;
+    
     @Override
-    @Transactional (readOnly = true)
+    @Transactional(readOnly = true)
     public List<Empleado> getEmpleados() {
-        return (List<Empleado>)empleadoDao.findAll();
+        return (List<Empleado>) empleadoDao.findAll();
     }
-
+    
     @Override
-    @Transactional (readOnly = true)
+    @Transactional(readOnly = true)
     public Empleado getEmpleado(Empleado empleado) {
         return empleadoDao.findById(empleado.getIdEmpleado()).orElse(null);
     }
-
+    
     @Override
+    @Transactional
     public void save(Empleado empleado) {
-        
+        empleadoDao.save(empleado);
     }
 
     @Override
+    @Transactional
     public void delete(Empleado empleado) {
-        
+        empleadoDao.delete(empleado);
     }
     
 }
