@@ -1,11 +1,7 @@
-<html>
-    <head>
-        <title>Tienda</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" th:href="@{/css/style.css}" />
-        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
-        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/barraNavegacion :: head">
     </head>
     <body>
         <section th:fragment="contenido" id="contenido">

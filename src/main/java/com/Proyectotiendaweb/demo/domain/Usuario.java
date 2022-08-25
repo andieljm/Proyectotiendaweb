@@ -22,7 +22,7 @@ public class Usuario implements Serializable {
     private Long idUsuario;
     String username;
     String password;
-    Long idCliente;
+    int idCliente = 2;
     Long idRol;
 
     public Usuario() {

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class UsuarioController {
+    int cn = 2;
     @Autowired
     UsuarioService usuarioService;
 
@@ -31,7 +32,9 @@ public class UsuarioController {
     @GetMapping("/usuario/nuevo")
     public String nuevoUsuario(Usuario usuario) {
         long us = 2;
+        cn++;
         usuario.setIdRol(us);
+        usuario.setIdCliente(cn);
         return "usuario/usuarioN";
     }
 
