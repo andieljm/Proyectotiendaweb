@@ -26,6 +26,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <input type="email" id="correocv" name="correo" th:field="*{correo}" />
                 <br/>       
                 <input type="submit" value="Enviar"/>
+                <a th:href="@{/}">Cancelar</a>
+                <a th:href="@{/formulario/}" sec:authorize="hasRole('ROLE_ADMIN')">Listado --></a>
         </form>
     </body>
 </html>

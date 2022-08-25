@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form th:action="@{/usuario/guardar}" method="post" th:object="${usuario}" >
+            <input type="hidden" name="idusuario" th:field="*{idUsuario}">
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombrecv" name="nombre" th:field="*{username}" />
+            <br/>
+            <label for="apellido">Password: </label>
+            <input type="password" id="apellidoscv" name="apellidos" th:field="*{password}" />
+            <input type="hidden" name="idrol" value="2"  th:field="*{idRol}">
+            <br/>       
+            <input type="submit" value="Registrar"/>
+        </form>
+    </body>
+</html>

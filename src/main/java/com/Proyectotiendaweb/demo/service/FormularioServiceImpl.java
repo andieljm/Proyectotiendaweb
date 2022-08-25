@@ -15,7 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class FormularioServiceImpl implements FormularioService{
 
-    @Autowired FormularioDao formularioDao;
+    @Autowired 
+    FormularioDao formularioDao;
     
     @Override
     @Transactional(readOnly = true)
@@ -36,6 +37,7 @@ public class FormularioServiceImpl implements FormularioService{
     }
 
     @Override
+    @Transactional
     public void delete(Formulario formulario) {
         formularioDao.delete(formulario);
     }

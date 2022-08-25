@@ -1,15 +1,12 @@
-<html>
-    <head>
-        <title>Tienda</title>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" th:href="@{/css/style.css}" />
-        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
-        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+<html xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/barraNavegacion :: head">
     </head>
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>
         <section th:fragment="contenido" id="contenido">
             <h2>Productos</h2>
+            
+            <a th:href="@{/producto/nuevo/}">Nuevo</a>
             <table border="1">
                 <thead>
                     <tr>
@@ -22,6 +19,8 @@
                         <th>codigo de Producto</th>
                         <th>Comprar</th>
                         <th>Favoritos</th>
+                        <th>Actualizar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +34,8 @@
                         <td th:text="${item.codigoProducto}"></td>
                         <td><a th:href="@{/carrito/agregar/} + ${item.idProducto}">Comprar</a></td>
                         <td><a th:href="@{/favorito/agregar/} + ${item.idProducto}">Favoritos</a></td>
+                        <td><a th:href="@{/producto/modificar/} + ${item.idProducto}">Actualizar</a></td>
+                        <td><a th:href="@{/producto/eliminar/} + ${item.idProducto}">Eliminar</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -13,6 +13,7 @@
                     <th>Apellido</th>
                     <th>telefono</th>
                     <th>Correo</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,8 +22,10 @@
                     <td th:text="${item.apellido}"></td>
                     <td th:text="${item.telefono}"></td>
                     <td th:text="${item.correo}"></td>
+                    <td><a th:href="@{/formulario/eliminar/} + ${item.idPersona}">Eliminar</a></td>
                 </tr>
             </tbody>
         </table>
+        <a th:href="@{/}">Regresar</a>
     </body>
 </html>

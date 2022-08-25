@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head>
         <title>Login</title>
         <meta charset="UTF-8">
@@ -21,5 +22,6 @@
                 <button type="submit" th:value="Login" name="iniciar" >Login</button>
             </form>
         </div>
+        <a th:href="@{/usuario/nuevo}">Crear usuario</a>
     </body>
 </html>
