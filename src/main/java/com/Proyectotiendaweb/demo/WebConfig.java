@@ -17,17 +17,17 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-//    @Bean
-//    public LocaleChangeInterceptor localeChangeInterceptor() {
-//        var lci = new LocaleChangeInterceptor();
-//        lci.setParamName("lang");
-//        return lci;
-//    }
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        var lci = new LocaleChangeInterceptor();
+        lci.setParamName("lang");
+        return lci;
+    }
 
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registro) {
-//        registro.addInterceptor(localeChangeInterceptor());
-//    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registro) {
+        registro.addInterceptor(localeChangeInterceptor());
+    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registro) {

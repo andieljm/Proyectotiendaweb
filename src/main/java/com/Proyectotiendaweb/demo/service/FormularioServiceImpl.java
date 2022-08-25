@@ -1,4 +1,3 @@
-
 package com.Proyectotiendaweb.demo.service;
 
 import com.Proyectotiendaweb.demo.dao.FormularioDao;
@@ -13,18 +12,19 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Warre
  */
 @Service
-public class FormularioServiceImpl implements FormularioService{
+public class FormularioServiceImpl implements FormularioService {
 
-    @Autowired FormularioDao formularioDao;
-    
+    @Autowired
+    FormularioDao formularioDao;
+
     @Override
     @Transactional(readOnly = true)
     public List<Formulario> getFormularios() {
-        return (List<Formulario>)formularioDao.findAll();
+        return (List<Formulario>) formularioDao.findAll();
     }
 
     @Override
-    @Transactional (readOnly = true)
+    @Transactional(readOnly = true)
     public Formulario getFormulario(Formulario formulario) {
         return formularioDao.findById(formulario.getIdPersona()).orElse(null);
     }
@@ -36,8 +36,9 @@ public class FormularioServiceImpl implements FormularioService{
     }
 
     @Override
+    @Transactional
     public void delete(Formulario formulario) {
         formularioDao.delete(formulario);
     }
-    
+
 }

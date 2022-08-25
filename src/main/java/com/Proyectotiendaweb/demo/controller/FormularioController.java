@@ -32,7 +32,7 @@ public class FormularioController {
     @PostMapping("/formulario/guardar")
     public String guardarFormulario(Formulario formulario) {
         formularioService.save(formulario);
-        return "redirect/formulario/";
+        return "redirect:/";
     }
 
     @GetMapping("/formulario/modificar/{idPersona}")
@@ -45,6 +45,6 @@ public class FormularioController {
     @GetMapping("/formulario/eliminar/{idPersona}")
     public String eliminarFormulario(Formulario formulario) {
         formularioService.delete(formulario);
-        return "redirect:/formulario/modificar";
+        return "redirect:/formulario/";
     }
 }

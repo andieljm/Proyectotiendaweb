@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/barraNavegacion :: head">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>ACTUALIZAR producto</div>
+        <br/>
+        <form th:action="@{/producto/guardar}" method="post" th:object="${producto}" >
+            <input type="hidden" name="idProducto" th:field="*{idProducto}">
+                <label for="nombre">Nombre: </label>
+                <input type="text" id="nombrecv" name="nombre" th:field="*{nombreProducto}" />
+                <br/>
+                <label for="precio">Precio: </label>
+                <input type="number" id="precio" name="precio" th:field="*{precio}" />
+                <br/>
+                <label for="color">Color: </label>
+                <input type="text" id="colorcv" name="color" th:field="*{color}" />
+                <br/>
+                <label for="stock">Stock: </label>
+                <input type="number" id="stockp" name="stock" th:field="*{stock}" />
+                <br/>
+                <label for="tipo">Tipo: </label>
+                <input type="text" id="tipocv" name="tipo" th:field="*{tipo}" />
+                <br/>
+                <label for="descripcion">descripcion: </label>
+                <input type="text" id="descripcionp" name="descripcion" th:field="*{descripcion}" />
+                <br/>
+                <label for="codigoProducto">Codigo: </label>
+                <input type="number" id="codigoProductocv" name="codigoProducto" th:field="*{codigoProducto}" />
+                <br/>
+                <input type="submit" value="Guardar"/>
+        </form>
     </body>
 </html>
