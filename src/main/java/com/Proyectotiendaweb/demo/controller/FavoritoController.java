@@ -33,35 +33,35 @@ public class FavoritoController {
 
         FavoritoDetalle favoritoDetalle = favoritoDetalleService.getFavoritoDetalle(idFavorito, producto);
 
-        if (favoritoDetalle != null) { 
-            favoritoDetalle.setCantidad(favoritoDetalle.getCantidad()+ 1); 
+        if (favoritoDetalle != null) {
+            favoritoDetalle.setCantidad(favoritoDetalle.getCantidad() + 1);
         } else {
             favoritoDetalle = new FavoritoDetalle(idFavorito, 1, producto);
         }
         favoritoDetalleService.save(favoritoDetalle);
 
-        return "redirect:/";
+        return "redirect:/productos/";
     }
-    
-    @GetMapping("/favorito/listado")
+
+    @GetMapping("/favoritos/")
     public String listado(Model model, Producto producto, HttpSession session) {
-        
+
         Long idFavorito = (Long) session.getAttribute("idFavorito");
         List<FavoritoDetalle> favoritoDetalles = favoritoDetalleService.getFavoritoDetalles(idFavorito);
         model.addAttribute("favoritoDetalle", favoritoDetalles);
         return "/favorito/listado";
     }
-    
+
     @GetMapping("/favorito/eliminar/{idFavorito}")
     public String eliminarFavoritoAll(Long idFavorito) {
         favoritoDetalleService.deleteAll(idFavorito);
-        return "redirect:/favorito/listado";
+        return "redirect:/favoritos/";
     }
-    
+
     @GetMapping("/favorito/eliminarSolo/{idFavoritoDetalle}")
     public String eliminarFavorito(FavoritoDetalle favoritoDetalle) {
         favoritoDetalleService.delete(favoritoDetalle);
-        return "redirect:/favorito/listado";
+        return "redirect:/favoritos/";
     }
     
 }

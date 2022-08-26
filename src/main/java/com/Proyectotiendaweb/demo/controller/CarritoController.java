@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CarritoController {
 
-    @Autowired
+     @Autowired
     private CarritoDetalleService carritoDetalleService; //sirve para meter los nuevos articulos 
     @Autowired
     private ProductoService productoService;
@@ -35,7 +35,7 @@ public class CarritoController {
         }
         carritoDetalleService.save(carritoDetalle);
         
-        return "redirect:/";
+        return "redirect:/productos/";
     }
 
     @GetMapping("/carrito/listado")
@@ -56,6 +56,14 @@ public class CarritoController {
         //model.addAttribute("montoImpuestos", montoImpuestos);
         model.addAttribute("montoTotal", montoTotal);
         return "/carrito/listado";
+    }
+    
+    @GetMapping("/carrito/eliminar/{idCarritoDetalle}")
+    public String agregar(CarritoDetalle carritoDetalle, HttpSession session) { //con la seccion nos ahorramos pasos, dondela definimos anteriormente
+        
+        carritoDetalleService.delete(carritoDetalle);
+        
+        return "redirect:/carrito/listado";
     }
 }
 
