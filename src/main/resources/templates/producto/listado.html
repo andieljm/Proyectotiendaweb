@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2">
                                 [[${item.nombreProducto}]]
-                                <i class="fa fa-heart" th:href="@{/favorito/agregar/} + ${item.idProducto}" style="color: #62F2F9; margin-bottom: 20px"></i>
+                                <a  th:href="@{/favorito/agregar/} + ${item.idProducto}" ><i class="fa fa-heart"style="color: #62F2F9; margin-bottom: 20px"></i></a>
                             </h6>
                             <h6 class="card-subtitle mb-2">
                                 <i class="fa fa-box-open" style="color: #62F2F9; margin-right: 15px; margin-bottom: 10px"></i>
@@ -30,9 +30,9 @@
                                 <i class="fa fa-info-circle" style="color: #62F2F9; margin-right: 15px; margin-bottom: 10px"></i>
                                 [[${item.descripcion}]]
                             </h6>
-                            <h6 class="btn" th:href="@{/carrito/agregar/} + ${item.idProducto}" style="display: flex; justify-content: center">Comprar</h6>
-                            <h6 class="btn" th:href="@{/producto/modificar/} + ${item.idProducto}" style="display: flex; justify-content: center">Actualizar</h6>
-                            <h6 class="btn" th:href="@{/producto/eliminar/} + ${item.idProducto}" style="display: flex; justify-content: center">Eliminar</h6>
+                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/carrito/agregar/} + ${item.idProducto}">Comprar</a>
+                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/producto/modificar/} + ${item.idProducto}">Actualizar</a>
+                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/producto/eliminar/} + ${item.idProducto}">Eliminar</a>
                         </div>
                     </div>  
                 </div>
