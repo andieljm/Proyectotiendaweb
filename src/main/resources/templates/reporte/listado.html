@@ -1,0 +1,36 @@
+
+<html>
+    <head>
+        <title>Tienda</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+    </head>
+    <body>
+        <header th:replace="layout/barraNavegacion :: header"></header>
+        <section id="contenido">
+            <h2>Reportes</h2>
+            <a th:href="@{/reporte/nuevo}">Nuevo Reporte</a>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Tipo de Reporte</th>
+                        <th>Descripción</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${reportes}">
+                        <td th:text="${item.tipoReporte}"></td>
+                        <td th:text="${item.descripcion}"></td>
+                        <td><a th:href="@{/reporte/modificar/} + ${item.idReporte}">Modificar</a></td>
+                        <td><a th:href="@{/reporte/eliminar/} + ${item.idReporte}">Eliminar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <footer th:replace="layout/piePagina :: piePagina" ></footer>
+    </body>
+</html>

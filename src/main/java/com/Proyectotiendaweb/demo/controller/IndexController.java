@@ -5,11 +5,15 @@ import com.Proyectotiendaweb.demo.domain.Carrito;
 import com.Proyectotiendaweb.demo.domain.CarritoDetalle;
 import com.Proyectotiendaweb.demo.domain.Favorito;
 import com.Proyectotiendaweb.demo.domain.FavoritoDetalle;
+import com.Proyectotiendaweb.demo.domain.Tarjeta;
+import com.Proyectotiendaweb.demo.domain.TarjetaDetalle;
 import com.Proyectotiendaweb.demo.domain.Usuario;
 import com.Proyectotiendaweb.demo.service.CarritoDetalleService;
 import com.Proyectotiendaweb.demo.service.CarritoService;
 import com.Proyectotiendaweb.demo.service.FavoritoDetalleService;
 import com.Proyectotiendaweb.demo.service.FavoritoService;
+import com.Proyectotiendaweb.demo.service.TarjetaDetalleService;
+import com.Proyectotiendaweb.demo.service.TarjetaService;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,18 +27,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    
     @Autowired
     private CarritoService carritoService;
 
     @Autowired
     private CarritoDetalleService carritoDetalleService;
-    
+
     @Autowired
     private FavoritoService favoritoService;
 
     @Autowired
     private FavoritoDetalleService favoritoDetalleService;
+
+    @Autowired
+    private TarjetaService tarjetaService;
+
+    @Autowired
+    private TarjetaDetalleService tarjetaDetalleService;
 
     @Autowired
     private UsuarioDao usuarioDao;
@@ -62,7 +71,7 @@ public class IndexController {
             }
         }
         //##
-        
+
         //para Carrito
         if (esCliente) {
             Usuario usuario = usuarioDao.findByUsername(user.getUsername());
@@ -77,7 +86,7 @@ public class IndexController {
             model.addAttribute("cantidadProductoCarrito", cantidadProductoCarrito);
 
         }
-        
+
         //Para Favorito
         if (esCliente) {
             Usuario usuario = usuarioDao.findByUsername(user.getUsername());
@@ -92,6 +101,21 @@ public class IndexController {
             model.addAttribute("cantidadProductoFavorito", cantidadProductoFavorito);
 
         }
+
+        if (esCliente) {
+            Usuario usuario = usuarioDao.findByUsername(user.getUsername());
+            Tarjeta tarjeta = tarjetaService.getTarjetaCliente(usuario.getIdCliente());
+
+            request.getSession().setAttribute("idCliente", usuario.getIdCliente());
+            request.getSession().setAttribute("idTarjeta", tarjeta.getIdTarjeta());
+
+            List<TarjetaDetalle> tarjetaDetalle = tarjetaDetalleService.getTarjetaDetalles(tarjeta.getIdTarjeta());
+            int cantidadTarjetas = tarjetaDetalle.size();
+
+            model.addAttribute("cantidadTarjetas", cantidadTarjetas);
+
+        }
+
         return "index";
     }
 }

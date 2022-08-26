@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
@@ -11,16 +10,15 @@
     </head>
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>
-        <section th:fragment="contenido" id="contenido">
-            <a href="#!"th:href="@{/}">Regresar</a>
-            <hr>
-                <div th:each="item : ${favoritoDetalle}" >
-                    <h5>[[${item.producto.nombreProducto}]]</h5>
-                    <p>[[${item.producto.descripcion}]]</p>
-                    <h5>[[${item.cantidad}]]</h5>
-                    <a th:href="@{/favorito/eliminarSolo/} + ${item.idFavoritoDetalle}">Eliminar de Favorito</a> <!-- Sirve para borrar solo 1 -->
-                </div>
-            </hr>
+        <section id="contenido">
+            <h2 th:each="item : ${metodoPagos}">Metodos de Pago</h2>
+            
+                    <tr th:each="item : ${metodoPagos}">
+                        <td th:text="${item.numeroCuenta}"></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
         </section>
         <footer th:replace="layout/piePagina :: piePagina" ></footer>
     </body>

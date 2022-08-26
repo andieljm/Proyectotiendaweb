@@ -4,6 +4,7 @@
  */
 package com.Proyectotiendaweb.demo.domain;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Data;
 
@@ -14,7 +15,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table (name = "reporte")
-public class Reporte {
+public class Reporte implements Serializable{
     
     private static final long serialVersionUID = 1L;
     

@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaft.org"
+      xmlns="http//www.w3.org/1999/xhtml">
+
+    <html>
+        <head>
+            <title>Tienda</title>
+            <meta charset="UTF-8" />
+            <link rel="stylesheet" th:href="@{/css/style.css}" />
+            <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+            <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+        </head>
+        <body>
+            <header th:replace="layout/barraNavegacion :: header"></header>
+            <section id="contenido">
+                <h1>Reporte</h1>
+                <a th:href="@{/}">Regresar</a>
+                <br/>
+                <br/>
+                <form th:action="@{/reporte/guardar}"
+                      method="post"
+                      th:object="${reporte}">
+                    <input type="hidden" name="idReporte" th:field="*{idReporte}"/>
+                    <label for="descripcion">Descripcion de Reporte </label>
+                    <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}"/>
+                    <br/>
+                    <label for="tipoReporte">Tipo de Reporte; </label>
+                    <input type="text" id="tipoReporte" name="tipoReporte" th:field="*{tipoReporte}"/>
+                    <br/>
+                    <a th:action="@{/tarjeta/agregar/} + ${idMetodoPago}"></a>
+                    <input type="submit" name="Guadar" value="Guardar" />
+                </form> 
+            </section>
+            <footer th:replace="layout/piePagina :: piePagina" ></footer>
+        </body>
+    </html>

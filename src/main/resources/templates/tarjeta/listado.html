@@ -1,29 +1,36 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
-    <head th:replace="layout/barraNavegacion :: head">
+    <head>
+        <title>Tienda</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
+        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
     </head>
     <body>
-        <section th:fragment="contenido" id="contenido">
+        <header th:replace="layout/barraNavegacion :: header"></header>
+        <section id="contenido">
             <h2>Metodos de Pago</h2>
+            <a th:href="@{/tarjeta/nuevo/}">Agregar Tarjeta</a>
             <table border="1">
                 <thead>
                     <tr>
                         <th>Numero de cuenta</th>
                         <th>Tipo</th>
                         <th>Codigo de Seguridad</th>
-                        <th>id_usuario</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="item : ${tarjetass}">
+                    <tr th:each="item : ${tarjetaDetalles}">
                         <td th:text="${item.numeroCuenta}"></td>
                         <td th:text="${item.tipo}"></td>
                         <td th:text="${item.codSeguridad}"></td>
-                        <td th:text="${item.idCliente}"></td>
                     </tr>
                 </tbody>
             </table>
+            <a th:href="@{/metodoPago/confirmacion}">Confirmar Metodo de pago</a>
         </section>
+        <footer th:replace="layout/piePagina :: piePagina" ></footer>
     </body>
 </html>

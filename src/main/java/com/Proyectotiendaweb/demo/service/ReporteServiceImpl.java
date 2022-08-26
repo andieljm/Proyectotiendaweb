@@ -30,13 +30,15 @@ public class ReporteServiceImpl implements ReporteService {
     }
 
     @Override
+    @Transactional
     public void save(Reporte reporte) {
-
+        reporteDao.save(reporte);
     }
 
     @Override
+    @Transactional
     public void delete(Reporte reporte) {
-
+        reporteDao.delete(reporte);
     }
 
 }

@@ -17,7 +17,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <p>Editar Perfil</p>
             <a href="url">Historial de compras</a>
             <br/>
-            <a href="url">Metodos de pago</a>
+            <a th:href="@{/tarjeta/listado}">Metodos de pago</a>
+            <br/>
+            <a th:href="@{/reporte/listado}">Reportes</a>
             <br/>
             <form method="POST" th:action="@{/logout}">
                 <a href="#" onclick="this.parentNode.submit();" class="nav-link">

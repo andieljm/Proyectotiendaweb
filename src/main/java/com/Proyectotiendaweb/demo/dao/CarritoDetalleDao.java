@@ -13,7 +13,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface CarritoDetalleDao extends CrudRepository<CarritoDetalle, Long>{
     
     public Optional<CarritoDetalle> findByIdCarritoAndProducto(Long idCarrito, Producto producto); //trae el producto relacionado  
-    //dice producto porque debe hacer match con la entidad definida en domain.CarritoDetalle //al ser un objeto de tipo articulo, impicitamente trae todas las cosas del articulo
+    //dice producto porque debe hacer match con la entidad definida en domain.CarritoDetalle //al ser un objeto de tipo articulo, impicitamente trae todas las cosas del producto
     
     public List<CarritoDetalle> findByIdCarrito(Long idCarrito);
     

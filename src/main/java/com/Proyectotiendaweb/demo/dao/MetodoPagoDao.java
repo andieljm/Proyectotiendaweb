@@ -1,12 +1,12 @@
 package com.Proyectotiendaweb.demo.dao;
 
-import com.Proyectotiendaweb.demo.domain.Tarjetas;
+import com.Proyectotiendaweb.demo.domain.MetodoPago;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author Warre
  */
-public interface TarjetasDao extends CrudRepository<Tarjetas, Long>{
+public interface MetodoPagoDao extends CrudRepository<MetodoPago, Long>{
     
 }
