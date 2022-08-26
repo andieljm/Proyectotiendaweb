@@ -1,34 +1,43 @@
-<html xmlns:th="http://www.thymeleaft.org"
-      xmlns="http//www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
 
     <html>
-        <head>
-            <title>Tienda</title>
-            <meta charset="UTF-8" />
-            <link rel="stylesheet" th:href="@{/css/style.css}" />
-            <link rel="stylesheet" th:href="@{/css/contenido.css}" />
-            <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+        <head th:replace="layout/barraNavegacion :: head">
+            <title>Modificar Reporte</title>
         </head>
         <body>
             <header th:replace="layout/barraNavegacion :: header"></header>
             <section id="contenido">
-                <h1>Reporte</h1>
-                <a th:href="@{/reportes/}">Regresar</a>
-                <br/>
-                <br/>
-                <form th:action="@{/reporte/guardar}"
-                      method="post"
-                      th:object="${reporte}">
-                    <input type="hidden" name="idReporte" th:field="*{idReporte}"/>
-                    <label for="descripcion">Descripcion de Reporte </label>
-                    <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}"/>
-                    <br/>
-                    <label for="tipoReporte">Tipo de Reporte; </label>
-                    <input type="text" id="tipoReporte" name="tipoReporte" th:field="*{tipoReporte}"/>
-                    <br/>
-                    <a th:action="@{/tarjeta/agregar/} + ${idMetodoPago}"></a>
-                    <input type="submit" name="Guadar" value="Guardar" />
-                </form> 
+                <div class="container" style="margin-top: 45px">
+                    <div class="row">
+                        <div class="col-md-7 mx-auto">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Empleado</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form th:action="@{/reporte/guardar}" method="post" th:object="${reporte}">
+                                        <input type="hidden" name="idReporte" th:field="*{idReporte}"/>
+                                        <div class="row">
+                                            <label for="descripcion">Descripcion de Reporte </label>
+                                            <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}"/>
+                                            <br/>
+                                        </div>
+                                        <div class="row">
+                                            <label for="tipoReporte">Tipo de Reporte; </label>
+                                            <input type="text" id="tipoReporte" name="tipoReporte" th:field="*{tipoReporte}"/>
+                                            <br/>
+                                        </div>
+                                        <br/>
+                                        <a class="btn" th:action="@{/tarjeta/agregar/} + ${idMetodoPago}"></a>
+                                        <a class="btn" th:href="@{/}" style="border-radius: 10px">Cancelar</a>
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <footer th:replace="layout/piePagina :: piePagina" ></footer>
         </body>

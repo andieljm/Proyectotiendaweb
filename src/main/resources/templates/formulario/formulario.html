@@ -1,31 +1,47 @@
-<html>
-    <head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">>
+    <head th:replace="layout/barraNavegacion :: head">
         <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h2>Formulario</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>telefono</th>
-                    <th>Correo</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="item : ${formularios}">
-                    <td th:text="${item.nombre}"></td>
-                    <td th:text="${item.apellido}"></td>
-                    <td th:text="${item.telefono}"></td>
-                    <td th:text="${item.correo}"></td>
-                    <td><a th:href="@{/formulario/eliminar/} + ${item.idPersona}">Eliminar</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <a th:href="@{/}">Regresar</a>
+        <header th:replace="layout/barraNavegacion :: header"></header>
+        <section id="contenido">
+            <div class="container" style="margin-top: 110px; color: white">
+                <div class="row">
+                    <div class="col-md-14">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Lista de Formularios</h4>
+                            </div>
+                            <table class="table table-stryped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>telefono</th>
+                                        <th>Correo</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="item : ${formularios}">
+                                        <td th:text="${item.nombre}"></td>
+                                        <td th:text="${item.apellido}"></td>
+                                        <td th:text="${item.telefono}"></td>
+                                        <td th:text="${item.correo}"></td>
+                                        <td><a class="btn" th:href="@{/formulario/eliminar/} + ${item.idPersona}">Eliminar</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <a class="btn" th:href="@{/}" style="margin-left: 46%">Regresar</a>
+            </div>
+        </section>
+        <footer th:replace="layout/piePagina :: piePagina" ></footer>
     </body>
 </html>

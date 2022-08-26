@@ -1,39 +1,47 @@
-<html xmlns:th="http://www.thymeleaft.org"
-      xmlns="http//www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 
-    <html>
-        <head>
-            <title>Tienda</title>
-            <meta charset="UTF-8" />
-            <link rel="stylesheet" th:href="@{/css/style.css}" />
-            <link rel="stylesheet" th:href="@{/css/contenido.css}" />
-            <link  rel="stylesheet" th:href="@{/css/menu.css}" />
-        </head>
-        <body>
-            <header th:replace="layout/barraNavegacion :: header"></header>
-            <section id="contenido">
-                <h1>Datos de Tarjeta</h1>
-                <a th:href="@{/}">Regresar</a>
-                <br/>
-                <br/>
-                <form th:action="@{/metodoPago/guardar}"
-                      method="post"
-                      th:object="${metodoPago}">
-                    <input type="hidden" name="idMetodoPago" th:field="*{idMetodoPago}"/>
-                    <label for="numeroCuenta">Numero de cuenta: </label>
-                    <input type="text" id="numeroCuenta" name="numeroCuenta" th:field="*{numeroCuenta}"/>
-                    <br/>
-                    <label for="tipo">MasterCard o Visa; </label>
-                    <input type="text" id="tipo" name="tipo" th:field="*{tipo}"/>
-                    <br/>
-                    <label for="codSeguridad">Codigo de seguridad; </label>
-                    <input type="text" id="codSeguridad" name="codSeguridad" th:field="*{codSeguridad}"/>
-                    <br/>
-                    <a th:action="@{/tarjeta/agregar/} + ${idMetodoPago}"></a>
-                    <input type="submit" name="Guadar" value="Guardar" />
-
-                </form> 
-            </section>
-            <footer th:replace="layout/piePagina :: piePagina" ></footer>
-        </body>
-    </html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/barraNavegacion :: head">
+    </head>
+    <body>
+        <header th:replace="layout/barraNavegacion :: header"></header>
+        <section id="contenido">
+            <div class="container" style="margin-top: 45px">
+                <div class="row">
+                    <div class="col-md-7 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Tarjeta</h4>
+                            </div>
+                            <div class="card-body">
+                                <form th:action="@{/metodoPago/guardar}" method="post" th:object="${metodoPago}">
+                                    <input type="hidden" name="idMetodoPago" th:field="*{idMetodoPago}"/>
+                                    <div class="row">
+                                        <label for="numeroCuenta">Numero de cuenta: </label>
+                                        <input type="text" id="numeroCuenta" name="numeroCuenta" th:field="*{numeroCuenta}"/>
+                                        <br/>
+                                    </div>
+                                    <div class="row">
+                                        <label for="tipo">MasterCard o Visa; </label>
+                                        <input type="text" id="tipo" name="tipo" th:field="*{tipo}"/>
+                                        <br/>
+                                    </div>
+                                    <div class="row">
+                                        <label for="codSeguridad">Codigo de seguridad; </label>
+                                        <input type="text" id="codSeguridad" name="codSeguridad" th:field="*{codSeguridad}"/>
+                                        <br/>
+                                    </div>
+                                    <a class="btn" th:action="@{/tarjeta/agregar/} + ${idMetodoPago}">Agregar</a>
+                                    <a class="btn" th:href="@{/}" style="border-radius: 10px">Cancelar</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer th:replace="layout/piePagina :: piePagina" ></footer>
+    </body>
+</html>

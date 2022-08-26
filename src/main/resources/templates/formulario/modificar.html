@@ -1,33 +1,55 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head th:replace="layout/barraNavegacion :: head">
+        <title>Formularios</title>
     </head>
     <body>
-        <header ></header> 
-        <br/>
-        <form th:action="@{/formulario/guardar}" method="post" th:object="${formulario}" >
-            <input type="hidden" name="idPersona" th:field="*{idPersona}">
-                <label for="nombre">Nombre: </label>
-                <input type="text" id="nombrecv" name="nombre" th:field="*{nombre}" />
-                <br/>
-                <label for="apellido">Apellidos: </label>
-                <input type="text" id="apellidoscv" name="apellidos" th:field="*{apellido}" />
-                <br/>
-                <label for="telefono">Telefono: </label>
-                <input type="tel" id="telefonocv" name="telefono" th:field="*{telefono}" />
-                <br/>
-                <label for="correo">Correo: </label>
-                <input type="email" id="correocv" name="correo" th:field="*{correo}" />
-                <br/>       
-                <input type="submit" value="Enviar"/>
-                <a th:href="@{/}">Cancelar</a>
-                <a th:href="@{/formulario/}" sec:authorize="hasRole('ROLE_ADMIN')">Listado --></a>
-        </form>
+        <header th:replace="layout/barraNavegacion :: header"></header>
+        <section id="contenido">
+            <div class="container" style="margin-top: 40px">
+                <div class="row">
+                    <div class="col-md-7 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Formulario</h4>
+                            </div>
+                            <div class="card-body">
+                                <form th:action="@{/formulario/guardar}" method="post" th:object="${formulario}" >
+                                    <input type="hidden" name="idPersona" th:field="*{idPersona}">
+                                        <a class="btn" th:href="@{/formulario/}" sec:authorize="hasRole('ROLE_ADMIN')" style="margin-left: 32%; margin-top: 10px">Lista de Formularios</a>
+                                        <div class="row">
+                                            <label for="nombre">Nombre: </label>
+                                            <input type="text" id="nombrecv" name="nombre" th:field="*{nombre}" />
+                                            <br/> 
+                                        </div>
+                                        <div class="row">
+                                            <label for="apellido">Apellidos: </label>
+                                            <input type="text" id="apellidoscv" name="apellidos" th:field="*{apellido}" />
+                                            <br/>
+                                        </div>
+                                        <div class="row">
+                                            <label for="telefono">Telefono: </label>
+                                            <input type="tel" id="telefonocv" name="telefono" th:field="*{telefono}" />
+                                            <br/>
+                                        </div>
+                                        <div class="row">
+                                            <label for="correo">Correo: </label>
+                                            <input type="email" id="correocv" name="correo" th:field="*{correo}" />
+                                            <br/>   
+                                        </div>
+                                        <br/>
+                                        <input class="btn" type="submit" value="Enviar" style="margin-left: 8%"/>
+                                        <a class="btn" th:href="@{/}" style="border-radius: 10px; margin-left: 50%">Cancelar</a>
+                                        <br/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer th:replace="layout/piePagina :: piePagina" ></footer>
     </body>
 </html>
