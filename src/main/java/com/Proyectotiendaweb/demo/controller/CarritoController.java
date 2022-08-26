@@ -63,7 +63,7 @@ public class CarritoController {
         
         carritoDetalleService.delete(carritoDetalle);
         
-        return "redirect:/carrito/listado";
+        return "redirect:/carrito/";
     }
 }
 

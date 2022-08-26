@@ -6,7 +6,7 @@
     <head th:replace="layout/barraNavegacion :: head">
     </head>
     <body>
-        <div>ACTUALIZAR producto</div>
+        <div>Producto</div>
         <br/>
         <form th:action="@{/producto/guardar}" method="post" th:object="${producto}" >
             <input type="hidden" name="idProducto" th:field="*{idProducto}">
