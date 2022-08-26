@@ -3,42 +3,25 @@
     </head>
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>
-        <section th:fragment="contenido" id="contenido">
-            <h2>Productos</h2>
+        <section id="contenido">
             
-            <a th:href="@{/producto/nuevo/}">Nuevo</a>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Color</th>
-                        <th>stock</th>
-                        <th>Tipo</th>
-                        <th>Descripcion</th>
-                        <th>codigo de Producto</th>
-                        <th>Comprar</th>
-                        <th>Favoritos</th>
-                        <th>Actualizar</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="item : ${productos}">
-                        <td th:text="${item.nombreProducto}"></td>
-                        <td th:text="${item.precio}"></td>
-                        <td th:text="${item.color}"></td>
-                        <td th:text="${item.stock}"></td>
-                        <td th:text="${item.tipo}"></td>
-                        <td th:text="${item.descripcion}"></td>
-                        <td th:text="${item.codigoProducto}"></td>
-                        <td><a th:href="@{/carrito/agregar/} + ${item.idProducto}">Comprar</a></td>
-                        <td><a th:href="@{/favorito/agregar/} + ${item.idProducto}">Favoritos</a></td>
-                        <td><a th:href="@{/producto/modificar/} + ${item.idProducto}">Actualizar</a></td>
-                        <td><a th:href="@{/producto/eliminar/} + ${item.idProducto}">Eliminar</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="container">
+                <h2 style="margin-top: -20px; margin-bottom: 20px; text-align: center">Productos</h2>        
+
+                <div class="row justify-content-evenly row-cols-4">
+                    <div class="card" th:each="item : ${productos}">
+                        <i class="fas fa-box" style="font-size: 60px; text-align: center"></i>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2">[[${item.nombreProducto}]]</h6>
+                            <h6 class="card-subtitle mb-2">[[${item.precio}]]</h6>
+                            <h6 class="card-subtitle mb-2">[[${item.descripcion}]]</h6>    
+                            <h6 class="btn" th:href="@{/carrito/agregar/} + ${item.idProducto}">Comprar</h6>
+                        </div>
+                    </div>                
+                </div>
+                <h2 class="btn" th:href="@{/producto/nuevo/}" style="text-align: center">Agregar</h2>
+            </div>
+
         </section>
         <footer th:replace="layout/piePagina :: piePagina" ></footer>
     </body>
