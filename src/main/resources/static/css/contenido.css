@@ -79,6 +79,20 @@
     font-weight: 400;
 }
 
+#contenido th{
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#contenido td{
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+
 #contenido .imagen img{
     max-width: 900px;
     position: absolute;
