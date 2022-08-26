@@ -13,7 +13,7 @@
 }
 
 #contenido .container{
-    margin-top: 80px;
+    margin-top: -10px;
     color: white;
 }
 
@@ -86,4 +86,10 @@
     bottom: 0%;
     margin-right: 5%;
     display: block;
+}
+
+.botonp{
+    color: white;
+    text-decoration: none;
+    
 }

@@ -18,7 +18,7 @@ public class ReporteController {
     
     @Autowired ReporteService reporteService;
     
-    @GetMapping("/reporte/listado")
+    @GetMapping("/reportes/")
     public String metodoPago(Model model) {
         
         var reportes = reporteService.getReportes();
@@ -34,7 +34,7 @@ public class ReporteController {
     @PostMapping("/reporte/guardar")
     public String guadarReporte(Reporte reporte) {
         reporteService.save(reporte);
-        return "redirect:/reporte/listado";
+        return "redirect:/reportes/";
     } 
     
     
@@ -48,7 +48,7 @@ public class ReporteController {
     @GetMapping("/reporte/eliminar/{idReporte}")
     public String eliminarReporte(Reporte reporte) {
         reporteService.delete(reporte);
-        return "redirect:/reporte/listado";
+        return "redirect:/reportes/";
     }
     
 }

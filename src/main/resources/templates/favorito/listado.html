@@ -12,7 +12,6 @@
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>
         <section th:fragment="contenido" id="contenido">
-            <a href="#!"th:href="@{/}">Regresar</a>
             <hr>
                 <div th:each="item : ${favoritoDetalle}" >
                     <h5>[[${item.producto.nombreProducto}]]</h5>

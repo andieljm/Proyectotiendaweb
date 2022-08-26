@@ -5,14 +5,14 @@
         <header th:replace="layout/barraNavegacion :: header"></header>
         <section id="contenido">
             <div class="container">
-                <h2 style="margin-top: -50px; margin-bottom: 20px; text-align: center">Productos</h2>        
+                <a class="btn" th:href="@{/producto/nuevo/}" sec:authorize="hasRole('ROLE_ADMIN')" style="margin-top: -15px; right:10% ;margin-left: 46%">Agregar</a>        
                 <div class="row justify-content-evenly row-cols-4">
                     <div class="card" th:each="item : ${productos}">
                         <i class="fas fa-box" style="margin-top: 30px; margin-bottom: 10px;  font-size: 80px; text-align: center; color: #62F2F9"></i>
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2">
                                 [[${item.nombreProducto}]]
-                                <a  th:href="@{/favorito/agregar/} + ${item.idProducto}" ><i class="fa fa-heart"style="color: #62F2F9; margin-bottom: 20px"></i></a>
+                                <a  th:href="@{/favorito/agregar/} + ${item.idProducto}" sec:authorize="hasRole('ROLE_USER')" ><i class="fa fa-heart"style="color: #62F2F9; margin-bottom: 20px"></i></a>
                             </h6>
                             <h6 class="card-subtitle mb-2">
                                 <i class="fa fa-box-open" style="color: #62F2F9; margin-right: 15px; margin-bottom: 10px"></i>
@@ -28,16 +28,16 @@
                             </h6>
                             <h6 class="card-subtitle mb-2">
                                 <i class="fa fa-info-circle" style="color: #62F2F9; margin-right: 15px; margin-bottom: 10px"></i>
-                                [[${item.descripcion}]]
+                                [[${item.descripcion}]]                        
                             </h6>
-                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/carrito/agregar/} + ${item.idProducto}">Comprar</a>
-                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/producto/modificar/} + ${item.idProducto}">Actualizar</a>
-                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/producto/eliminar/} + ${item.idProducto}">Eliminar</a>
+                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/favorito/agregar/} + ${item.idProducto}" sec:authorize="hasRole('ROLE_USER')"><i class="fas fa-heart"></i></a>
+                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/carrito/agregar/} + ${item.idProducto}" sec:authorize="hasRole('ROLE_USER')">Comprar</a>
+                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/producto/modificar/} + ${item.idProducto}" sec:authorize="hasRole('ROLE_ADMIN')">Actualizar</a>
+                            <a class="btn" style="display: flex; justify-content: center; margin-bottom: 10px" th:href="@{/producto/eliminar/} + ${item.idProducto}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
                         </div>
                     </div>  
                 </div>
                 <br/>
-                <h2 class="btn" th:href="@{/producto/nuevo/}" style="margin-top: -15px; margin-left: 46%">Agregar</h2>
             </div>
         </section>
         <footer th:replace="layout/piePagina :: piePagina" ></footer>

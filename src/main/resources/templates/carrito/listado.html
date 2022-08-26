@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Tienda</title>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" th:href="@{/css/style.css}" />
-        <link rel="stylesheet" th:href="@{/css/contenido.css}" />
-        <link  rel="stylesheet" th:href="@{/css/menu.css}" />
+    <head th:replace="layout/barraNavegacion :: head">
     </head>
     <body>
         <header th:replace="layout/barraNavegacion :: header"></header>
         <section id="contenido">
-            <a href="#!"th:href="@{/}">Regresar</a></h5>
             <hr>
                 <div th:each="item : ${carritoDetalles}" >
                     <h5>[[${item.producto.nombreProducto}]]</h5>
                     <p>[[${item.producto.descripcion}]]</p>
                     <h5>[[${item.cantidad}]]</h5>
+                    <a th:href="@{/carrito/eliminar/} + ${item.idCarritoDetalle}">Eliminar</a>
                     <h5 >[[${item.precio}]]</h5>
                     <p>Total</p>
                     <p>[[${new java.text.DecimalFormat('#,##0.00').format(montoTotal)}]]</p>

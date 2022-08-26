@@ -38,7 +38,7 @@ public class CarritoController {
         return "redirect:/productos/";
     }
 
-    @GetMapping("/carrito/listado")
+    @GetMapping("/carrito/")
     public String listado(Model model, Producto producto, HttpSession session) {
         
         Long idCarrito = (Long) session.getAttribute("idCarrito");
