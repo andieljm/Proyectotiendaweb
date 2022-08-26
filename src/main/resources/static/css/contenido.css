@@ -12,6 +12,59 @@
     font-weight: 500;
 }
 
+#contenido .container{
+    margin-top: 80px;
+    color: white;
+}
+
+#contenido .card-header{
+    background-color: #485DE0;
+    border-radius: 15px;
+}
+
+#contenido .card-header h4{
+    margin-top: 10px;
+}
+
+#contenido .card{
+    background-color: #6583EF;
+    border-radius: 15px;
+}
+
+#contenido .row input{
+    border-radius: 10px;
+}
+
+#contenido .row {
+    padding: 10px 30px;
+}
+
+#contenido .btn{
+    background-color: #485DE0;
+    color: white;
+}
+
+#contenido .btn:hover{
+    background-color: #3244B6;
+}
+
+#contenido #entrar{
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 25px;
+    margin-bottom: 30px;
+}
+
+#contenido #registrarse #pregunta{
+    margin-bottom: 15px;
+}
+
+#contenido #registrarse{
+    text-align: center;
+    padding: 10px 25px;
+    margin-bottom: 10px;
+}
+
 #contenido h1{
     margin-top: 20px;
     color: white;

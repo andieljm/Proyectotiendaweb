@@ -2,26 +2,51 @@
 <html <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
-    <head>
+    <head th:replace="layout/barraNavegacion :: head">
         <title>Login</title>
-        <meta charset="UTF-8">
     </head>
     <body>
-        <div class="contenido">
-            <form method="POST" th:action="@{/login}">
-                <label for="username" >Username</label>
-                <br/>
-                <input type="text" name="username" id="username"/>
-                <br/>
-                <br/>
-                <label for="password"  >Password</label>
-                <br/>
-                <input type="text" name="password" id="password"/>
-                <br/>
-                <br/>
-                <button type="submit" th:value="Login" name="iniciar" >Login</button>
-            </form>
-        </div>
-        <a th:href="@{/usuario/nuevo}">Registrarse</a>
+
+        <header class="header">
+            <nav href="index.html" class="logo">LOGO</nav>
+        </header>
+
+        <section id="contenido">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Iniciar Sesión</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" th:action="@{/login}">
+                                    <div class="row">
+                                        <label for="username">Usuario: </label>
+                                        <input type="text" name="username" id="username"/>
+                                    </div>
+                                    <div class="row">
+                                        <label for="password">Contraseña: </label>
+                                        <input type="password" name="password" id="password"/>
+                                    </div>
+                                    <div id="entrar">
+                                        <button type="submit" class="btn">Entrar</button>                                        
+                                    </div>
+                                    <div id="registrarse">
+                                        <label id="pregunta" for="username">¿Todavía no se ha registrado?</label>
+                                        <br/>
+                                        <a class="btn" th:href="@{/usuario/nuevo}">Registrarse</a> 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <footer th:replace="layout/piePagina :: piePagina" ></footer>
+
     </body>
 </html>
